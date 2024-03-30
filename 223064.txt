@@ -1,0 +1,73 @@
+4. Креираме фолдер и истиот го иницијализираме 
+mkdir SI_2024_lab1_223064
+cd SI_2024_lab1_223064
+git init
+5. Го поврзувам моето локално репо со мојот оддалечен репозиториум
+git remote add origin https://github.com/jstojkovska/SI_2024_lab1_223064.git
+6. Креирам .md фајл и на истиот му правам commit
+nano README.md
+git add README.md
+git commit -m "Initial commit."
+7. Додавам commit порака
+git add SILab1Main.java
+git add SILab1_1.java
+git add SILab1_2.java
+git commit -m "Add starter code."
+8. Во овој чекор ја повикувам командата git push за синхронизација со оддалечниот репозиториум
+ git push --set-upstream origin master
+9. Формирам две гранки кои се разгрануваат од master
+git checkout -b bug1
+git checkout -b bug2
+10. Се префрлам на гранка bug1
+git checkout bug1
+11. Поправам грешка во SILab1_1.java и на истата и правам commit
+nano SILab1_1.java
+git add SILab1_1.java
+git commit -m "Fix wrong condition in filterOddLengthStrings"
+12. Се префрлам на гранка bug2
+git checkout bug2
+13. Поправам грешка во SILab1_2.java и на истата и правам commit
+nano SILab1_2.java
+git add SILab1_2.java
+git commit -m "Fix wrong condition in makeBigStringFrom"
+14. Се враќам на гранката bug1
+git checkout -b bug1
+15. Поправам грешка во SILab1Main.java и на истата и правам commit
+nano SILab1Main.java
+git add SILab1Main.java
+git commit -m "Call method filterOddLengthStrings in main class"
+16. Се префрлам на гранка bug2
+git checkout bug2
+17.Поправам грешка во SILab1Main.java и на истата и правам commit
+nano SILab1Main.java
+git add SILab1Main.java
+git commit -m "Call method makeBigStringFrom in main class"
+18. Правам синхронизација на сите гранки со оддалечниот репозиториум
+git push --set-upstream origin bug2
+git push --set-upstream origin bug1
+19. Се префрлам на гранка master
+git checkout master
+20. Ја спојувам гранката bug1 кон master
+git merge bug1
+Не се случи конфликт туку гранките се споија по fast forward стратегијата
+21. Синхронизирање на сите гранки со оддалечениот репозиториум
+git push
+22. Се префрлам на гранка bug2
+git checkout bug2
+23. Rebase спрема гранката master
+Се појавува конфликт,
+Стратегија која ја употребив за да го решам конфликтот е тоа што ги оставив двата системски повици додадени одделно во посебните гранки. Стратегијата за спојување користена за време на rebase e fast-forward стратегија.
+git rebase master
+Auto-merging SILab1Main.java
+CONFLICT (content): Merge conflict in SILab1Main.java
+nano SILab1Main.java
+git add SILab1Main.java
+git rebase --continue
+Successfully rebased and updated refs/heads/bug2
+24. Се префрлам на master
+git checkout master
+25. Спојување на гранката bug2 кон master
+Не се случи конфликт туку гранките се споија по fast forward стратегијата
+26,27 Синхронизација на сите гранки со оддалечниот репозиториум
+28. 
+git log > logs.txt - Ги запишувам логовите во нов .txt 
